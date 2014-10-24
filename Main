@@ -1,0 +1,71 @@
+import pprint
+ 
+# polyatomic ion dictionary
+polyatomic = {'hydrogen sulfite': 'HSO3(-)', 'oxalate': 'C2O4(2-)',
+              'hydrogen phosphate': 'HPO4(2-)', 'sulfate': 'SO4(2-)', 'cyanide': 'CN(-)',
+              'dihydrogen phosphate': 'H2PO4(-)', 'perchlorate': 'ClO4(-)',
+              'dichromate': 'Cr2O7(2-)', 'phosphate': 'PO4(3-)',
+              'hydrogen carbonate': 'HCO3(-)', 'chlorate': 'ClO3(-)',
+              'hypochlorite': 'ClO(-)', 'permanganate': 'MnO4(-)', 'nitrite': 'NO2(-)',
+              'hydrogen sulfate': 'HSO4(-)', 'nitrate': 'NO3(-)', 'carbonate': 'CO3(2-)',
+              'sulfite': 'SO3(2-)', 'chromate': 'CrO4(2-)', 'chlorite': 'ClO2(-)',
+              'ammonium': 'NH4(+)', 'hydroxide': 'OH(-)'}
+ 
+# binary acid dict
+binary = {'hydrofluoric acid': 'HF', 'hydrochloric acid': 'HCl',
+          'hydrobromic acid': 'HBr', 'hydroiodic acid': 'HI',
+          'hydrosulfric acid': 'H2S'}
+ 
+# trenary acid dict
+ternary = {'nitric acid': 'HNO3', 'nitrous acid': 'HNO2',
+           'hypochlorous acid': 'HClO', 'chlorous acid': 'HClO2', 'chloric acid': 'HClO3',
+           'perchloric acid': 'HClO4', 'sulfuric acid': 'H2SO4', 'sulfurous acid':
+           'H2SO3', 'phosphoric acid': 'H3PO4', 'carbonic acid': 'H2CO3',
+           'acetic acid': 'HC2H3O2', 'oxalic acid': 'H2C2O4', 'boric acid': 'H3BO3',
+           'silicic acid': 'H2SiO3'}
+ 
+base = {'sodium hydroxide': 'NaOH', 'potassium hydroxide': 'KOH',
+        'ammonium hydroxide': 'NH4OH', 'calcium hydroxide': 'Ca(OH)2',
+        'magnesium hydroxide': 'Mg(OH2)', 'barium hydroxide': 'Ba(OH)2',
+        'aluminuim hydroxide': 'Al(OH)3', 'ferrous hydroxide': 'Fe(OH)2',
+        'ferric hydroxide': 'Fe(OH)3', 'zinc hydroxide': 'Zn(OH)2',
+        'lithium hydroxide': 'LiOH'}
+ 
+# main loop
+def main():
+    while True:
+        chemical_name = raw_input("> ")
+        if chemical_name == 'polyatomic':
+            pprint.pprint(polyatomic.keys())
+        elif chemical_name == 'binary':
+            pprint.pprint(binary.keys())
+        elif chemical_name == 'ternary':
+            pprint.pprint(ternary.keys())
+        elif chemical_name == 'base':
+            pprint.pprint(base.keys())
+        elif chemical_name in polyatomic:
+            print(polyatomic[chemical_name])
+        elif chemical_name in binary:
+            print(binary[chemical_name])
+        elif chemical_name in ternary:
+            print(ternary[chemical_name])
+        elif chemical_name in base:
+            print(base[chemical_name])
+        elif chemical_name == 'intro':
+            intro()
+        elif chemical_name == 'done':
+            print "Goodbye!"
+            exit()
+        else:
+            print "Must type the name of a polyatomic ion, acid, or base\n \
+           or a group name."
+ 
+def intro():
+    print "Enter the name of a polyatomic ion, binary acid, ternary acid,\n \
+   or base to see its chemical formula and charge. To see a complete list of\n \
+   any group type polyatomic, binary, ternary, or base.\n \
+   When finished, type done.\n \
+   To see this prompt again, type intro."
+ 
+intro()
+main()
